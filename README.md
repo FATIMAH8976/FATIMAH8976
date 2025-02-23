@@ -2,9 +2,9 @@
 - 👀 I’m interested in coding
 - 🌱 I’m currently learning Kotlin
 - 💞️ I’m looking to collaborate on Android development projects
-- 📫 How to reach me ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
+- 📫 How to reach me via LinkedIn @https://www.linkedin.com/in/fatimah-mansoori
+- 😄 Pronouns: her
+
 
 <!---
 FATIMAH8976/FATIMAH8976 is a ✨ special ✨ repository because its `README.md` (this file) appears on your GitHub profile.
