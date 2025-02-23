@@ -15,8 +15,7 @@ public class TicTacToe extends JFrame {
 
     public TicTacToe() {
         setLayout(new BorderLayout());
-
-        // Panel for the game grid
+//Add JPanel
         JPanel panel = new BackgroundPanel("/Users/fatimah/eclipse-workspace/TicTacToeGame/src/TicTacToeImages/WhatsApp Image 2025-02-22 at 18.29.18.jpeg");
         panel.setLayout(new GridLayout(3, 3));
 
@@ -31,19 +30,18 @@ public class TicTacToe extends JFrame {
 
         add(panel, BorderLayout.CENTER);
 
-        // Score Label
+     
         scoreLabel = new JLabel("Player Score: " + playerScore + " Computer Score: " + computerScore);
         scoreLabel.setHorizontalAlignment(SwingConstants.CENTER);
         add(scoreLabel, BorderLayout.NORTH);
 
-        // Window settings
+     
         setSize(400, 400);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setResizable(false);
         setVisible(true);
     }
 
-    // Background panel class
     class BackgroundPanel extends JPanel {
         private ImageIcon background;
 
@@ -58,7 +56,7 @@ public class TicTacToe extends JFrame {
         }
     }
 
-    // Handles player moves
+
     private class ButtonListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
@@ -69,7 +67,7 @@ public class TicTacToe extends JFrame {
                 playerTurn = false;
                 checkWinner();
 
-                // Delay computer's turn to make the game feel more interactive
+                // Delay computer's turn 
                 if (!isGameOver()) {
                     Timer timer = new Timer(500, new ActionListener() { // 500ms delay
                         @Override
@@ -84,7 +82,7 @@ public class TicTacToe extends JFrame {
         }
     }
 
-    // Handles computer moves
+  
     private void computerTurn() {
         List<JButton> availableButtons = new ArrayList<>();
         for (JButton button : buttons) {
@@ -105,7 +103,7 @@ public class TicTacToe extends JFrame {
 
     // Checks for a winner or a draw
     private void checkWinner() {
-        // Check rows
+        // Check rows 
         for (int i = 0; i < 3; i++) {
             if (!buttons[i * 3].getText().isEmpty() &&
                     buttons[i * 3].getText().equals(buttons[i * 3 + 1].getText()) &&
@@ -115,7 +113,7 @@ public class TicTacToe extends JFrame {
             }
         }
 
-        // Check columns
+        // Check possibility 1
         for (int i = 0; i < 3; i++) {
             if (!buttons[i].getText().isEmpty() &&
                     buttons[i].getText().equals(buttons[i + 3].getText()) &&
@@ -125,7 +123,7 @@ public class TicTacToe extends JFrame {
             }
         }
 
-        // Check diagonals
+        // Check possibility 2
         if (!buttons[0].getText().isEmpty() &&
                 buttons[0].getText().equals(buttons[4].getText()) &&
                 buttons[0].getText().equals(buttons[8].getText())) {
@@ -140,14 +138,14 @@ public class TicTacToe extends JFrame {
             return;
         }
 
-        // Check for draw
+        // draw??
         if (isGameOver()) {
             JOptionPane.showMessageDialog(this, "It's a draw!");
             resetGame();
         }
     }
 
-    // Checks if the board is full
+//gameOver?
     private boolean isGameOver() {
         for (JButton button : buttons) {
             if (button.getText().isEmpty()) {
@@ -156,8 +154,6 @@ public class TicTacToe extends JFrame {
         }
         return true; // All spots filled, game over
     }
-
-    // Declares winner and updates score
     private void declareWinner(String winner) {
         if (winner.equals("You")) {
             playerScore++;
@@ -170,7 +166,7 @@ public class TicTacToe extends JFrame {
         resetGame();
     }
 
-    // Resets the game board
+    // Resets the game(need to add new feature where the background changes itself)
     private void resetGame() {
         for (JButton button : buttons) {
             button.setText("");
